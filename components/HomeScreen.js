@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import BarStatus from './BarStatus';
+import ContentHome from './ContentHome';
 
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
@@ -17,7 +18,12 @@ export default function HomeScreen() {
       ]}
     >
       <BarStatus />
-      <Text>Home Screen</Text>
+      <ImageBackground
+        resizeMode='cover'
+        style={styles.image}
+        source={require('../assets/images/image4.png')}>
+          <ContentHome />
+      </ImageBackground>
     </View>
   );
 }
@@ -25,7 +31,12 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: '#F7F7F7'
   },
+  image: {
+    position: 'absolute',
+    width: '100%',
+    height: 200,
+  }
 });
