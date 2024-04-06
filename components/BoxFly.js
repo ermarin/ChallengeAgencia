@@ -49,13 +49,12 @@ export default function BoxFly({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     backgroundColor: '#ffffff',
     borderRadius: 10,
     padding: 15,
     marginVertical: 20,
-    marginHorizontal: 60,
     width: Dimensions.get('screen').width - 60,
   },
   shadowProp: {

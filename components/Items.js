@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 
 import CodeBar from './CodeBar';
 import ItemFly from './ItemFly';
@@ -7,7 +7,6 @@ import ItemHeader from './ItemHeader';
 import ItemInfoTraveler from './ItemInfoTraveler';
 
 export default Items = ({ item }) => {
-  const { width } = useWindowDimensions();
 
   return (
     <View style={{ flex: 1, flexDirection: 'column' }}>

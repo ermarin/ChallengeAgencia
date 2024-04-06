@@ -1,8 +1,13 @@
-import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import * as Clipboard from 'expo-clipboard';
 
 import { Feather } from '@expo/vector-icons';
 
 export default function BoxDetails() {
+  const copyToClipboard = async () => {
+    await Clipboard.setStringAsync('ANU38SP');
+  }
+
   return (
     <View style={styles.container}>
       <View style={[styles.boxs, styles.shadowProp]}>
@@ -31,7 +36,15 @@ export default function BoxDetails() {
           <Text style={styles.text_title}>Transporte al aeropuerto</Text>
           <View style={{ flexDirection: 'row' }}>
             <Text>Usa el cupón:&nbsp;</Text>
-            <Pressable style={styles.btn_dash}>
+            <Pressable style={({pressed}) => [
+              {
+                backgroundColor: pressed ? '#4563FF' : '#FFFFFF',
+              },
+              styles.btn_dash]}
+              onPress={() => {
+                copyToClipboard(),
+                Alert.alert('Code copied')
+              }}>
               <>
                 <Feather name='file' size={10} color='#4563FF' />
                 <Text style={styles.text_btn_cupon}>ANU38SP</Text>
@@ -47,8 +60,8 @@ export default function BoxDetails() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    flex: 4,
+    justifyContent: 'flex-start',
     alignItems: 'center',
     width: Dimensions.get('screen').width - 60,
   },

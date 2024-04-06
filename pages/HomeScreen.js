@@ -1,8 +1,9 @@
-import { Dimensions, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import BarStatus from '../components/BarStatus';
 import ContentHome from '../components/ContentHome';
+import Title from '../components/Title';
 
 export default function HomeScreen({ navigation }) {
   const insets = useSafeAreaInsets();
@@ -17,12 +18,17 @@ export default function HomeScreen({ navigation }) {
       ]}
     >
       <BarStatus />
-      <ImageBackground
-        resizeMode='cover'
-        style={styles.image}
-        source={require('../assets/images/image4.png')}>
+      <View style={{ flex: 1.5 }}>
+        <ImageBackground
+          resizeMode='cover'
+          style={styles.image}
+          source={require('../assets/images/image4.png')}>
+          <Title title={'Dublín'}></Title>
+        </ImageBackground>
+      </View>
+      <View style={{ flex: 4.5, marginTop: -60 }}>
         <ContentHome navigation={navigation} />
-      </ImageBackground>
+      </View>
     </View>
   );
 }
@@ -34,9 +40,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7F7F7'
   },
   image: {
-    width: '100%',
-    height: 'auto',
-    position: 'absolute',
-    top: 0,
+    flex: 1,
+    justifyContent: 'center',
   }
 });
