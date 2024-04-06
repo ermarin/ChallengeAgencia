@@ -1,10 +1,10 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import BarStatus from './BarStatus';
-import ContentHome from './ContentHome';
+import BarStatus from '../components/BarStatus';
+import ContentTravelers from '../components/ContentTravelers';
 
-export default function HomeScreen() {
+export default function TravelersScreen({ navigation }) {
   const insets = useSafeAreaInsets();
   return (
     <View style={[
@@ -17,12 +17,7 @@ export default function HomeScreen() {
       ]}
     >
       <BarStatus />
-      <ImageBackground
-        resizeMode='cover'
-        style={styles.image}
-        source={require('../assets/images/image4.png')}>
-          <ContentHome />
-      </ImageBackground>
+      <ContentTravelers navigation={navigation} />
     </View>
   );
 }

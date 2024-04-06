@@ -3,7 +3,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 import TimeLine from './TimeLine';
 
-export default function BoxFly() {
+export default function BoxFly({ navigation }) {
   return (
     <View style={[styles.container, styles.shadowProp]}>
       <View style={{ justifyContent: 'center', marginBottom: 10 }}>
@@ -37,7 +37,7 @@ export default function BoxFly() {
           <Text style={styles.btns}>CAMBIAR VUELO</Text>
         </Pressable>
         <Pressable
-          onPress={() => console.log('Press')}
+          onPress={() => navigation.navigate('TravelersScreen')}
           style={styles.btn}
         >
           <Text style={styles.btns}>PASE DE ABORDAR</Text>

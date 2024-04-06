@@ -4,7 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Feather } from '@expo/vector-icons';
 
-import HomeScreen from './components/HomeScreen';
+import HomeScreen from './pages/HomeScreen';
+import TravelersScreen from './pages/TravelersScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName={'HomeScreen'}
         screenOptions={{
           title: 'Agencia de Viaje',
           headerStyle: {
@@ -23,14 +25,21 @@ export default function App() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
-          headerRight: () => (
-            <Feather name='menu' size={24} color='white' />
-          ),
+          headerBackVisible: false,
         }}
       >
         <Stack.Screen
-          name='Home'
+          name={'HomeScreen'}
           component={HomeScreen}
+          options={{
+            headerRight: () => (
+            <Feather name='menu' size={24} color='white' />
+          ),
+          }}
+        />
+        <Stack.Screen
+          name={'TravelersScreen'}
+          component={TravelersScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
